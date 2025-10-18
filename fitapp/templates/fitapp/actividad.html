@@ -10,94 +10,65 @@
     <title>Document</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_actividad.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="{% static 'icons/Vector (Stroke).svg' %}" alt="gap">
-        </div>
-        <div class="perfil">
-            <img src="{% static 'icons/Avatar.png' %}" alt="gap">
-        </div>
-    </header>
-    
-    <content>
-        <div class="calendario">
-            <div class="dias">
-                <p>L</p>
-                <p>12</p>
-            </div>
-            <div class="dias">
-                <p>M</p>
-                <p>13</p>
-            </div>
-            <div class="dias">
-                <p>X</p>
-                <p>14</p>
-            </div>
-            <div class="dias" id="seleccionado">
-                <p>J</p>
-                <p>15</p>
-            </div>
-            <div class="dias">
-                <p>V</p>
-                <p>16</p>
-            </div>
-        </div>
-        
-        <section>
-            <h2>Reservas (1/2)</h2>
-            <div class="clase">
-                <div class="iconoClase">
-                    <img src="{% static 'icons/GAP_thumb.png' %}" alt="gap">
-                </div>
-                <div class="infoClase">
-                    <div class="nombreHoras">
-                        <p>GAP</p>
-                        <p><span class="horas">19:30</span> · <span class="horas">45 min</span></p>
-                    </div>
-                    <div class="barra"><progress value="3" max="10"></progress><span class="barraNumeros">3/10</span></div>
-                </div>
-            </div>
-            
-        </section>
-        </section>
+<header>
+    <div class="backButton">
+        <img src="{% static 'icons/Icon Button.svg' %}" alt="atrás">
+    </div>
+    <div class="tituloActividad">
+        <h1>GAP</h1>
+    </div>
+</header>
 
-        <section>
-            <h2>Clases</h2>
-            <div class="clase">
-                <div class="iconoClase">
-                    <img src="{% static 'icons/HIT_Thumb.png' %}" alt="gap">
+<content>
+    <div class="actividad">
+        <div class="imagenActividad">
+            <img src="" alt="">
+        </div>
+        <div class="infoActividad">
+            <div class="infoActividadTop">
+                <div class="infoLista">
+                    <img src="{% static 'icons/Calendar.svg' %}" alt="calendario">
+                    <p>Martes 6 Oct.</p>
                 </div>
-                <div class="infoClase">
-                    <div class="nombreHoras">
-                        <p>HIIT</p>
-                        <p><span class="horas">19:30</span> · <span class="horas">45 min</span></p>
-                    </div>
-                    <div class="barra"><progress value="3" max="10"></progress><span class="barraNumeros">3/10</span></div>
+                <div class="infoLista">
+                    <img src="{% static 'icons/Clock.svg' %}" alt="reloj">
+                    <p><span class="horas">{{available_inscription.available_date|date:"H:i"}}</span> · <span class="horas">45 min</span></p>
                 </div>
-            </div>
-
-            <div class="clase">
-                <div class="iconoClase">
-                    <img src="{% static 'icons/Aerobic_Thumb.png' %}" alt="gap">
-                </div>
-                <div class="infoClase">
-                    <div class="nombreHoras">
-                        <p>Aerobic</p>
-                        <p><span class="horas">19:30</span> · <span class="horas">45 min</span></p>
-                    </div>
-                    <div class="barra"><progress value="3" max="10"></progress><span class="barraNumeros">3/10</span></div>
+                <div class="infoLista">
+                    <img src="{% static 'icons/User.svg' %}" alt="monitor">
+                    <p>Raúl Rodríguez (Monitor)</p>
                 </div>
             </div>
+            <div class="infoActividadDescripcion">
+                <div class="textoDescripcion">
+                    <h3>Normas y recomendaciones</h3>
+                </div>
+                <ul>
+                    <li>Calienta siempre antes de comenzar tu entrenamiento para prevenir lesiones.</li>
+                    <li>Limpia el equipo después de usarlo para mantener la higiene para todos.</li>
+                    <li>Respeta el espacio de los demás.</li>
+                    <li>Mantente hidratado y toma descansos según sea necesario.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-        </section>
-    </content>
+</content>
+
+<div class="floatingMenu">
+    <div class="menuInfo">
+        <p>Plazas</p>
+        <p id="status">Reservada</p>
+    </div>
+    <button>Cancelar reserva</button>
+</div>
 
 </body>
 </html>
