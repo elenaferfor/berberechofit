@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
 def inscriptions(request):
-    return render(request, 'fitapp\inscriptions.html', {})
+    return render(request, 'fitapp/index.html', {})
