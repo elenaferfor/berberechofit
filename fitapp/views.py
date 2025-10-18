@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def inscriptions(request):
+    return render(request, 'fitapp\inscriptions.html', {})
