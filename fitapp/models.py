@@ -3,9 +3,9 @@ from django.db import models
 from django.utils import timezone
 
 
-class User(models.Model):
-    name = models.CharField(max_length=30)
-    surname = models.CharField(max_length=50)
-    email = models.EmailField()
+class Activity(models.Model):
+    name = models.CharField(max_length=100)
+    max_seats =models.IntegerField () 
+    description = models.CharField(null=True, blank=True)
     created_date = models.DateTimeField(
             default=timezone.now)
