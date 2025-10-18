@@ -103,7 +103,7 @@ ul{
 
 li{
     list-style-type: disc;
-    list-style-position: inside;
+    list-style-position: outside;
     max-width: 90%;
     color: #757575;
     font-size: 16px;
