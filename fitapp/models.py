@@ -15,23 +15,27 @@ class Activity(models.Model):
     @property
     def inscritos_count(self):
         return self.inscripciones.count()
+    
+    @property
+    def seats_left(self):
+        return self.max_seats - self.inscritos_count
+
 
     def clean(self):
-        # Validación para que no se pueda exceder el máximo de participantes
         if self.inscritos_count > self.max_participantes:
             raise ValidationError("Se ha alcanzado el número máximo de participantes.")
 
 class Inscripcion(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User,null=True, blank=True, on_delete=models.CASCADE)
     actividad = models.ForeignKey(Activity, on_delete=models.CASCADE, related_name="inscripciones")
     fecha_inscripcion = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('usuario', 'actividad')  # evita que un usuario se registre dos veces
+        unique_together = ('usuario', 'actividad')
 
     def clean(self):
         if self.actividad.inscritos_count >= self.actividad.max_participantes:
             raise ValidationError("No se pueden registrar más usuarios en esta actividad.")
 
-    def __str__(self):
-        return f"{self.usuario.username} inscrito en {self.actividad.nombre}"
+    # def __str__(self):
+    #     return f"{self.usuario.username} inscrito en {self.actividad.nombre}"
