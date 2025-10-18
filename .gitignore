@@ -1,0 +1,4 @@
+# Archivos de migraciones viejas o temporales
+__pycache__/
+*.py[cod]
+*$py.class
