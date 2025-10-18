@@ -53,6 +53,7 @@
         <section>
             <h2>Reservas (1/2)</h2>
             {% for not_available_inscription in not_available_inscriptions %}
+            <a href="{% url 'inscription_detail' pk=not_available_inscription.pk %}">
             <div class="clase">
                 <div class="iconoClase">
                     <img src="{% static 'icons/GAP_thumb.png' %}" alt="gap">
@@ -65,6 +66,7 @@
                     <div class="barra"><progress value="3" max="10"></progress><span class="barraNumeros">3/10</span></div>
                 </div>
             </div>
+            </a>
             {% endfor %}
         </section>
 
