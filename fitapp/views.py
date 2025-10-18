@@ -7,4 +7,4 @@ def inscriptions(request):
     not_available_inscriptions = Inscripcion.objects.filter(usuario__isnull=False)
 
     
-    return render(request, 'fitapp/index.html', {'available_inscriptions': available_inscriptions, 'not_available_descriptions': not_available_inscriptions})
+    return render(request, 'fitapp/index.html', {'available_inscriptions': available_inscriptions, 'not_available_inscriptions': not_available_inscriptions})

@@ -52,19 +52,20 @@
         
         <section>
             <h2>Reservas (1/2)</h2>
-                <div class="clase">
-                    <div class="iconoClase">
-                        <img src="{% static 'icons/GAP_thumb.png' %}" alt="gap">
-                    </div>
-                    <div class="infoClase">
-                        <div class="nombreHoras">
-                            <p>GAP</p>
-                            <p><span class="horas">19:30</span> · <span class="horas">45 min</span></p>
-                        </div>
-                        <div class="barra"><progress value="3" max="10"></progress><span class="barraNumeros">3/10</span></div>
-                    </div>
+            {% for not_available_inscription in not_available_inscriptions %}
+            <div class="clase">
+                <div class="iconoClase">
+                    <img src="{% static 'icons/GAP_thumb.png' %}" alt="gap">
                 </div>
-            
+                <div class="infoClase">
+                    <div class="nombreHoras">
+                        <p>{{not_available_inscription.name}}</p>
+                        <p><span class="horas">{{not_available_inscription.available_date|date:"H:i"}}</span> · <span class="horas">45 min</span></p>
+                    </div>
+                    <div class="barra"><progress value="3" max="10"></progress><span class="barraNumeros">3/10</span></div>
+                </div>
+            </div>
+            {% endfor %}
         </section>
 
         <section>
@@ -77,7 +78,7 @@
                 <div class="infoClase">
                     <div class="nombreHoras">
                         <p>{{available_inscription.actividad.name}}</p>
-                        <p><span class="horas">19:30</span> · <span class="horas">45 min</span></p>
+                        <p><span class="horas">{{available_inscription.available_date|date:"H:i"}}</span> · <span class="horas">45 min</span></p>
                     </div>
                     <div class="barra"><progress value="3" max="10"></progress><span class="barraNumeros">3/10</span></div>
                 </div>
