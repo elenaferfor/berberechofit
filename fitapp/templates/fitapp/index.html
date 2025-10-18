@@ -73,6 +73,7 @@
         <section>
             <h2>Clases</h2>
             {% for available_inscription in available_inscriptions %}
+            <a href="{% url 'inscription_detail' pk=available_inscription.pk %}">
             <div class="clase">
                 <div class="iconoClase">
                     <img src="{% static 'icons/HIT_Thumb.png' %}" alt="hiit">
@@ -85,6 +86,7 @@
                     <div class="barra"><progress value="3" max="10"></progress><span class="barraNumeros">3/10</span></div>
                 </div>
             </div>
+            </a>
             {% endfor %}
         </section>
     </content>
