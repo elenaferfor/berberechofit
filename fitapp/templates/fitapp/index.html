@@ -69,32 +69,20 @@
 
         <section>
             <h2>Clases</h2>
+            {% for available_inscription in available_inscriptions %}
             <div class="clase">
                 <div class="iconoClase">
                     <img src="{% static 'icons/HIT_Thumb.png' %}" alt="gap">
                 </div>
                 <div class="infoClase">
                     <div class="nombreHoras">
-                        <p>HIIT</p>
+                        <p>{{available_inscription.actividad.name}}</p>
                         <p><span class="horas">19:30</span> · <span class="horas">45 min</span></p>
                     </div>
                     <div class="barra"><progress value="3" max="10"></progress><span class="barraNumeros">3/10</span></div>
                 </div>
             </div>
-
-            <div class="clase">
-                <div class="iconoClase">
-                    <img src="{% static 'icons/Aerobic_Thumb.png' %}" alt="gap">
-                </div>
-                <div class="infoClase">
-                    <div class="nombreHoras">
-                        <p>Aerobic</p>
-                        <p><span class="horas">19:30</span> · <span class="horas">45 min</span></p>
-                    </div>
-                    <div class="barra"><progress value="3" max="10"></progress><span class="barraNumeros">3/10</span></div>
-                </div>
-            </div>
-
+            {% endfor %}
         </section>
     </content>
 

@@ -36,6 +36,3 @@ class Inscripcion(models.Model):
     def clean(self):
         if self.actividad.inscritos_count >= self.actividad.max_participantes:
             raise ValidationError("No se pueden registrar más usuarios en esta actividad.")
-
-    # def __str__(self):
-    #     return f"{self.usuario.username} inscrito en {self.actividad.nombre}"
